@@ -19,6 +19,8 @@ import com.estudo.estudoapirest.domain.model.Estado;
 import com.estudo.estudoapirest.domain.repository.EstadoRepository;
 import com.estudo.estudoapirest.domain.service.CadastroEstadoService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/estados")
 public class EstadoController {
@@ -41,13 +43,13 @@ public class EstadoController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Estado adicionar(@RequestBody Estado estado) {
+	public Estado adicionar(@RequestBody @Valid Estado estado) {
 		return cadastroEstado.salvar(estado);
 	}
 	
 	@PutMapping("/{estadoId}")
 	public Estado atualizar(@PathVariable Long estadoId,
-			@RequestBody Estado estado) {
+			@RequestBody @Valid Estado estado) {
 		Estado estadoAtual = cadastroEstado.buscarOuFalhar(estadoId);
 		
 		BeanUtils.copyProperties(estado, estadoAtual, "id");
