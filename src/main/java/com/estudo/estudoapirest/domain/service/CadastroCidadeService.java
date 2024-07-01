@@ -2,7 +2,6 @@ package com.estudo.estudoapirest.domain.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.estudo.estudoapirest.domain.exception.CidadeNaoEncontradaException;
@@ -35,11 +34,8 @@ public class CadastroCidadeService {
 	
 	public void excluir(Long cidadeId) {
 		try {
-			cidadeRepository.deleteById(cidadeId);
+			cidadeRepository.delete(buscarOuFalhar(cidadeId));
 			
-		} catch (EmptyResultDataAccessException e) {
-			throw new CidadeNaoEncontradaException(cidadeId);
-		
 		} catch (DataIntegrityViolationException e) {
 			throw new EntidadeEmUsoException(
 				String.format(MSG_CIDADE_EM_USO, cidadeId));
