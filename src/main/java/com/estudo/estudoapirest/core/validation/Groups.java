@@ -1,4 +1,4 @@
-package com.estudo.estudoapirest;
+package com.estudo.estudoapirest.core.validation;
 
 public interface Groups {
 

@@ -1,6 +1,6 @@
 package com.estudo.estudoapirest.domain.model;
 
-import com.estudo.estudoapirest.Groups;
+import com.estudo.estudoapirest.core.validation.Groups;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -3,7 +3,7 @@ package com.estudo.estudoapirest.domain.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.estudo.estudoapirest.Groups;
+import com.estudo.estudoapirest.core.validation.Groups;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
