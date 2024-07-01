@@ -24,7 +24,7 @@ public class CadastroDeCozinhaIntegrationTests {
 	
 	// teste que passa
 	@Test
-	public void testarCadastroCozinhaComSucesso() {
+	public void deveAtribuirId_QuandoCadastrarCozinhaComDadosCorretos() {
 		// cenário
 		Cozinha novaCozinha = new Cozinha();
 		novaCozinha.setNome("Chinesa");
@@ -39,7 +39,7 @@ public class CadastroDeCozinhaIntegrationTests {
 	
 	// teste que falha
 	@Test
-	public void testarCadastroCozinhaSemNome() {
+	public void deveFalhar_QuandoCadastrarCozinhaSemNome() {
 		Throwable ex = assertThrows(ConstraintViolationException.class, () -> {
 			Cozinha novaCozinha = new Cozinha();
 			novaCozinha.setNome(null);
